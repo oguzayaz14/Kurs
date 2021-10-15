@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Sucks T-Shirt</title>
+    <script src="https://kit.fontawesome.com/f8b699535a.js" crossorigin="anonymous"></script>
+    <style>
+        .body {
+            margin: 0;
+        }
+        
+        .main-container {
+            display:grid;
+            grid-template: 50px 50px 3fr 1fr 120px / 1fr 2fr 2fr;
+            gap: 8px;
+            box-sizing: border-box;
+            font-family: Helvetica;
+        }
+        
+        .header {
+            grid-column: 1 / 4;
+            background-color: rgb(46, 46, 46);
+            margin: 0;
+            text-align: center;
+            color: white;
+        }
+    
+        .navbar {
+            grid-column: 1 / 4;
+        }    
+        
+        .navbar-menu {
+            list-style-type: none;
+        }
+
+        .navbar-list {
+            display: inline;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .sidebar {
+            grid-column: 1 / 2;
+            grid-row: 3 / 5;
+            margin-left: 0px;
+        }
+
+        .sidebar-menu {
+            padding:10px;
+            margin-left: 10px;
+        }
+
+        .sidebar-list {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            list-style-type: none;
+        }
+
+        .image-place {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+        }
+
+        .content {
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+            margin: 25px;
+            padding: 10px;
+        }
+
+        .select {
+            margin-top: 5px;
+            margin-bottom: 30px;
+            padding: 8px;
+            background-color: rgb(230, 230, 230);
+            border: rgb(230, 230, 230);
+            cursor: pointer;
+        }
+
+        .add-basket {
+            margin-left: 0;
+            padding: 10px;
+        }
+
+        .add-button {
+            width: 220px;
+            height: 45px;
+            border: solid rgb(60, 60, 60);
+            background-color: white;
+            color:rgb(60, 60, 60);
+            cursor: pointer;
+            transition-duration: 0.5s;
+        }
+
+        .add-button:hover {
+            background-color: purple;
+            border-color: purple;
+            color: white;
+            font-weight: bold;
+        }
+
+        .purchase {
+            margin-left: 0;
+            padding: 10px;
+        }
+
+        .prc-button {
+            width: 220px;
+            height: 45px;
+            border: solid rgb(60, 60, 60);
+            background-color: rgb(60, 60, 60);
+            color: white;
+            cursor: pointer;
+            transition-duration: 0.5s;
+        }
+
+        .prc-button:hover {
+            background-color: purple;
+            border-color: purple;
+            color: white;
+        }
+
+        .share {
+            margin-top: 50px;
+            padding: 10px;
+        }
+        
+        .share-apps {
+            list-style-type: none;
+            padding: 30px;
+        }
+
+        .share-list {
+            display: inline;
+        }
+
+        .size-table {
+            grid-column: 2 / 4;
+            grid-row: 4 / 5; 
+        }
+
+        #sizes {
+            width: 100%;
+            text-align: center;
+        }
+
+        #sizes td, #sizes th {
+            border: 1px solid rgb(104, 104, 104);
+            padding: 10px;
+        } 
+        
+        #table-headers {
+            background: gray;
+        }
+       
+        .footer-1 {
+            grid-column: 1 / 3;
+            grid-row: 5 / 6;
+        }
+
+        .footer-2 {
+            grid-column: 3 / 4;
+            grid-row: 5 / 6;
+        }
+        
+        .footer-list {
+            list-style-type: none;
+        }
+
+        .footer-header {
+            font-family:'Times New Roman', Times, serif;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <div class="main-container">
+        <div class="header">
+            <p>100₺ ve üzeri alışverişlerde kargo bedava + koşulsuz ve 365 gün iade/değişim garantisi.</p>
+        </div>
+        <div class="navbar">
+            <ul class="navbar-menu">
+                <li class="navbar-list" style="float:left">
+                    <span class="search-box">
+                        <i class="fas fa-search"></i><input type="text" name="search" placeholder="Ara">
+                    </span>
+                </li>
+                <li class="navbar-list" style="text-align:center"><u>Oğuz</u> olarak giriş yapıldı.</li>
+                <li class="navbar-list" style="text-align:center"><a href="#">Çıkış Yap</a></li>
+                <li class="navbar-list" style="float:right"><a href="#">Ödeme</a></li>
+                <li class="navbar-list" style="float:right"><i class="fas fa-shopping-cart"></i><a href="#"> Alışveriş Sepeti (1)</a></li>
+            </ul>
+        </div>
+        <div class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="sidebar-list"><a href="#">Ana Sayfa</a></li>
+                <li class="sidebar-list"><a href="#">Katalog</a></li>
+                <li class="sidebar-list"><a href="#">Özel Baskılı T-Shirt</a></li>
+                <li class="sidebar-list"><a href="#">Hakkımızda</a></li>
+                <li class="sidebar-list"><a href="#">Sık Sorulan Sorular</a></li>
+                <li class="sidebar-list"><a href="#">İletişim</a></li>
+                <li class="sidebar-list"><i class="fa-brands fa-twitter"></i> <i class="fa-brands fa-instagram"></i></li>
+            </ul>
+        </div>
+        <div class="image-place">
+            <p>Ana Sayfa > CSS Sucks T-Shirt</p>
+            <img src="https://cdn.shopify.com/s/files/1/0066/9212/products/css_600x600.jpg?v=1596741930" alt="CSS Sucks T-Shirt">
+        </div>
+        <div class="content">
+            <h1>CSS Sucks T-Shirt</h1>
+            <h2>59.00 ₺</h2>
+            <p>Vergiler dahil <u>Kargo</u> ödeme adımında hesaplanacaktır.</p>
+            <select class="select">
+                <option disabled selected>Beden Seçimi</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="x-large">X Large</option>
+                <option value="2x-large">2X Large</option>
+                <option value="3x-large">3X Large</option>
+            </select>
+            <select class="select">
+                <option disabled selected>Adet</option>
+                <option value="one">1</option>
+                <option value="two">2</option>
+                <option value="three">3</option>
+                <option value="four">4</option>
+                <option value="five">5</option>    
+            </select>
+            <div class="add-basket">
+                <button class="add-button">SEPETE EKLE</button>
+            </div>
+            <div class="purchase">
+                <button class="prc-button">HEMEN SATIN ALIN</button>
+            </div>
+            <div class="share">
+                <ul class="share-apps">
+                    <li class="share-list"><i class="fa-brands fa-twitter"></i></li>
+                    <li class="share-list"><i class="fa-brands fa-facebook-square"></i></li>
+                    <li class="share-list"><i class="fa-brands fa-pinterest"></i></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="size-table">
+            <h3 class="footer-header">Beden Tablosu</h3>
+            <table id="sizes">
+                <tr id="table-headers">
+                    <th></th>
+                    <th>S</th>
+                    <th>M</th>
+                    <th>L</th>
+                    <th>XL</th>
+                    <th>2XL</th>
+                    <th>3XL</th>
+                </tr>
+                <tr>
+                    <td>En (cm)</td>
+                    <td>49</td>
+                    <td>51</td>
+                    <td>53</td>
+                    <td>55</td>
+                    <td>57</td>
+                    <td>59</td>
+                </tr>
+                <tr>
+                    <td>Boy (cm)</td>
+                    <td>71</td>
+                    <td>73</td>
+                    <td>75</td>
+                    <td>77</td>
+                    <td>79</td>
+                    <td>81</td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer-1">
+            <h3 class="footer-header">Yardım</h3>
+            <ul class="footer-list">
+                <li><a href="#">Mesafeli Satış Sözleşmesi</a></li>
+                <li><a href="#">Teslimat</a></li>
+                <li><a href="#">Gizlilik</a></li>
+                <li><a href="#">İptal & İade</a></li>
+            </ul>
+        </div>
+        <div class="footer-2">
+            <h3 class="footer-header">İletişim</h3>
+            <p>kuzgun.io ile ilgili herhangi bir konuda bilgi almak, istek, öneri veya şikayetler için <u>info@kuzgun.io</u> adresine mail atabilirsiniz.</p>
+        </div>
+    </div>
+
+
+</body>
+</html>
