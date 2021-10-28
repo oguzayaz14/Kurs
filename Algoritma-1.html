@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritma-1</title>
+    <style>
+        input[type="text"] {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        #btn {
+            background-color: purple;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="text" id="num1" placeholder="Bir sayı giriniz"> </input><br>
+    <input type="text" id="num2" placeholder="Bir sayı giriniz"> </input><br>
+    <button id="btn" onclick="topla();">Topla</button>
+    <script>
+        
+        function topla(){
+            var sayi1 = parseInt(document.getElementById("num1").value);
+            var sayi2 = parseInt(document.getElementById("num2").value);
+            var sonuc = sayi1 + sayi2;
+            console.log(sonuc);
+            alert(sonuc);
+        };
+
+    </script>
+</body>
+</html>
