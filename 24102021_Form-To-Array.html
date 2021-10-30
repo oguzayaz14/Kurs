@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenci Formu</title>
+
+    <style>
+        
+        body div {
+            padding: 20px;   
+        }
+
+        #ogr-isim {
+            height: 30px;
+            width: 240px;
+        }
+
+        #fav-ders {
+            height: 30px;
+            width: 240px;
+        }
+
+        #ogr-numara {
+            height: 30px;
+            width: 240px;
+        }
+
+        #btn {
+            height: 30px;
+            width: 100px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h2>FORM</h2>
+    
+    <div class="std-name">
+        <input type="text" placeholder="İsim Soyisim" id="ogr-isim"> </input>
+    </div>
+    
+    <div class="fav-lesson">
+        <input type="text" placeholder="Favori Ders" id="fav-ders"> </input>
+    </div>
+    
+    <div class="std-number">
+        <input type="text" placeholder="Öğrenci Numarası" id="ogr-numara"> </input>
+    </div>
+    
+    <div class="add">
+        <button id="btn" onclick="arrayData();">Öğrenci Ekle</button>
+    </div>
+    
+    <script>
+
+        var ogrDizi = [];
+
+        function arrayData () {
+             
+            var isim = document.getElementById('ogr-isim').value;
+            var ders = document.getElementById('fav-ders').value;
+            var numara = document.getElementById('ogr-numara').value;
+
+            ogrDizi.push(isim , ders , numara);
+        
+            console.log(ogrDizi);
+
+        }
+
+    </script>
+</body>
+</html>
