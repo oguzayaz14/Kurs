@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .inputs {
+            padding-bottom: 30px;
+        }
+
+        #text-box {
+            height: 50px;
+            width: 300px;
+        }
+
+        #action {
+            background-color: blueviolet;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="inputs">
+        <p>Metin</p>
+        <input type="text" id="text-box" placeholder="Metninizi buraya giriniz."> </input>
+    </div>
+    <div class="inputs">
+        <p>Süre (ms)</p>
+        <input type="number" id="ms-box" placeholder="ms cinsinden süreyi giriniz."> </input>
+    </div>
+    <div class="buttons">
+        <button id="action">Uygula</button>
+    </div>
+    
+    <script>
+
+        var btn = document.getElementById("action");
+        btn.addEventListener("click" , function () {
+            var txt = document.getElementById('text-box').value;
+            var timer = parseFloat(document.getElementById('ms-box').value);
+            
+            setTimeout ( function () {
+                alert(txt);
+            }, timer);
+        });
+
+    </script>
+
+</body>
+</html>
