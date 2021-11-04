@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #greeny {
+            top: 25%;
+            left: 33%;
+            background-color: green;
+            height: 300px;
+            width: 300px;
+            position: absolute;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+<div id="greeny"></div>
+
+<script>
+
+    var inp = prompt("Yanıp-sönme frekansını 'ms' cinsinden buraya giriniz.");
+    var timer = parseFloat(inp);
+    console.log(typeof(timer),timer);
+    var blockTimer = parseFloat(timer*2);
+    console.log(typeof(blockTimer),blockTimer);
+
+    setInterval ( function () {
+
+        document.getElementById('greeny').style.display="none";
+
+    },timer);
+    
+    setInterval ( function () {
+
+        document.getElementById('greeny').style.display="block";
+
+    },blockTimer);
+
+</script>
+
+</body>
+</html>
