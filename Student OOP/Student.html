@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenci OOP</title>
+    <link rel="stylesheet" href="student.css">
+    <script src="student.js"></script>
+</head>
+<body>
+    
+    <div class="main-container">
+
+        <h2 class="title">Öğrenci Formu</h2>
+        <input type="text" id="name" placeholder="Ad"></input>
+        <input type="text" id="surname" placeholder="Soyad"></input>
+        <input type="text" id="number" placeholder="Öğrenci Numarası"></input>
+        <input type="text" id="classroom" placeholder="Sınıf"></input>
+        <input type="text" id="favlesson" placeholder="En Sevdiği Ders"></input>
+        <input type="text" id="adress" placeholder="Ev Adresi"></input>
+        <input type="text" id="email" placeholder="E-Posta Adresi"></input>
+        <input type="text" id="phone" placeholder="Cep Telefonu Numarası"></input>
+        <select>
+            <option value="erkek">Erkek</option>
+            <option value="kadin">Kadın</option>   
+        </select>
+        <button id="ekle">Öğrenci Ekle</button>
+        
+        <hr>
+
+        <h2 class="title">Öğrenci Silme</h2>
+        <input type="text" id="deleted-number" placeholder="Silinecek Öğrencinin Numarası"></input>
+        <button id="delete">Öğrenci Sil</button>
+
+        <hr>
+
+        <h2 class="title">Öğrenci Arama</h2>
+        <label>Arama kriterini seçiniz.</label>
+        <select id="searchkey">
+            <option value="name">Öğrenci Adı</option>
+            <option value="number">Öğrenci Numarası</option>
+            <option value="classroom">Sınıf</option>
+            <option value="favlesson">Favori Ders</option>
+        </select>
+        <input type="text" id="searchvalue" placeholder="Aranacak Değeri Giriniz"></input>
+        <button id="search">Öğrenci Ara</button>
+
+        <hr>
+
+        <h2 class="title">Öğrenci Güncelleme</h2>
+        <input type="text" id="updated-number" placeholder="Güncellenecek Öğrencinin Numarası"></input>
+        <input type="text" id="key" placeholder="Güncellenecek Veri Tipi"></input>
+        <input type="text" id="value" placeholder="Güncellenecek Değer"></input>
+        <button id="update">Öğrenci Güncelle</button>
+
+        <hr>
+
+        <h2 class="title">Öğrenci Listeleme</h2>
+        <button id="list">Öğrenci Listele</button>
+        <div class="table-container">
+            <table class="student-table">
+                <tr class="table-headers">
+                    <th>Ad-Soyad</th>
+                    <th>Öğrenci No.</th>
+                    <th>Sınıf</th>
+                    <th>Favori Ders</th>
+                    <th>Konum</th>
+                    <th>E-Posta</th>
+                    <th>Telefon</th>
+                </tr>
+                <tbody id="table-data">
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <script>
+
+            var ekleBtn = document.getElementById("ekle");
+            ekleBtn.addEventListener("click" , function () {
+
+                try {
+                        
+                    var std = {
+
+                        "name" : document.getElementById("name").value,
+                        "surname" : document.getElementById("surname").value,
+                        "number" : document.getElementById("number").value,
+                        "classroom" : document.getElementById("classroom").value,
+                        "favlesson" : document.getElementById("favlesson").value,
+                        "adress" : document.getElementById("adress").value,
+                        "email" : document.getElementById("email").value,
+                        "phone" : document.getElementById("phone").value
+
+                    }
+
+                    var student = new Student();
+                    student.ekle(std); 
+
+                } catch (error) {
+                        
+                    console.log("Bir hata oluştu." + error);
+
+                }
+                
+            console.log(std);
+            
+            });
+
+            var silBtn = document.getElementById("delete");
+            silBtn.addEventListener("click" , function () {
+
+                var std = new Student();
+                
+                try {
+                    
+                    std.sil(document.getElementById("deleted-number").value);
+
+                } catch (error) {
+                    
+                    console.log("Bir hata oluştu." + error);
+
+                }
+                
+            });
+
+            var araBtn = document.getElementById("search");
+            araBtn.addEventListener("click" , function () {
+
+                try {
+                    
+                    var std = new Student ();
+
+                    var searchKey = document.getElementById("searchkey").value;
+
+                    var searchVal = document.getElementById("searchvalue").value;
+
+                    var ogr = std.ara(searchKey, searchVal);
+
+                } catch (error) {
+                 
+                    console.log("Bir hata oluştu" + error);
+
+                }
+
+            });
+
+            var guncelleBtn = document.getElementById("update");
+            guncelleBtn.addEventListener("click" , function () {
+
+                try {
+                     
+                    var ogrId = document.querySelector("#updated-number").value;
+                    
+                    var key = document.querySelector("#key").value;
+                    
+                    var val = document.querySelector("#value").value;
+                    
+                    var std = new Student();
+                    
+                    std.guncelle(ogrId, key, val);
+
+                } catch (error) {
+                    
+                    console.log("Bir hata oluştu" + error);
+
+                }
+               
+            });
+
+            var listeleBtn = document.getElementById("list");
+            listeleBtn.addEventListener("click" , function () {
+
+                try {
+                  
+                    var stdArray = [];
+            
+            
+                    for (loc in localStorage) {
+
+                        try {
+                        
+                            console.log(JSON.parse(localStorage[loc]));
+                            stdArray.push(JSON.parse(localStorage[loc]));
+
+                        } catch (error) {
+                        
+                            console.log(`Bir hata oluştu. ${error}`);
+
+                        }
+
+                    }
+
+                    console.log(stdArray);
+
+                    buildTable(stdArray);
+
+                    function buildTable (data) {
+
+                        var stdTable = document.getElementById("table-data");
+
+                        for (var i = 0; i < data.length; i++) {
+
+                            var row = `<tr>
+                                            <td>${data[i].fullName}</td>
+                                            <td>${data[i].number}</td>
+                                            <td>${data[i].classroom}</td>
+                                            <td>${data[i].favlesson}</td>
+                                            <td>${data[i].adress}</td>
+                                            <td>${data[i].email}</td>
+                                            <td>${data[i].phone}</td>
+                                    </tr>`
+
+                            stdTable.innerHTML += row
+
+                        }
+
+                    }
+
+                } catch (error) {
+                    
+                    console.log("Bir hata oluştu. " + error);
+
+                }
+
+            });
+
+
+            
+
+        </script>
+
+    </div>
+
+</body>
+</html>
